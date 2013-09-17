@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Christopher P. Yarger <cpyarger@gmail.com>">
+    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+	<title>Rpi-Thermostat</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/justified-nav.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body onload="fname_update()">
+	<div class="container">
+		<div class="masthead">
+        		<h4 class="text-muted">Thermometer Control</h4>
+			<ul class="nav nav-justified">
+          			<li class="active"><a href="/">Home</a></li>
+          			<li><a href="https://github.com/cpyarger/rpi-Thermostat">rpi-Thermostat github</a></li>
+        		</ul>
+      		</div>
+		<div id="mygraph" align="center"></div>
+		<div class="row" align="center">
+			<div class="col-lg-2">
+			<div class="panel-heading"><h4>Status</h4></div>
+           			<div class="panel-body">
+					<button class="btn btn-warning" id="statusBtn" onclick="status()">Disconected</button>
+				</div>
+			</div>
+
+        		<div class="col-lg-2">
+        			<div class="panel-heading"><h4>Current Temp</h4></div>
+           			<div class="panel-body"><h1><b><div id="temp" color="#ff0000">XX</div></b></h1></div>
+        		</div>
+
+			<div class="col-lg-2">
+				<div class="panel-heading"><h4>Current Set Temp</h4></div>
+				<div class="panel-body"><h1><b><div id="stemp" color="#ff0000">XX</div></b></h1></div>
+			</div>
+
+        		<div class="col-lg-2">
+        			<div class="panel-heading"><h4>Temp Controls</h4></div>
+				<div class="panel-body">
+					<p><a class="btn btn-lg btn-danger" onclick="tup()">UP</a>
+					<p><a class="btn btn-lg btn-info" onclick="tdown()">Down</a> 			 
+				</div>
+       			</div>
+
+			<div class="col-lg-2">
+			<div class="panel-heading"><h4>master control</h4></div>
+				<div class="panel-body">
+					<p><a class="btn btn-lg btn-danger" onclick="run()">RUN</a>
+					<p><a class="btn btn-lg btn-info" onclick="stop()">Stop</a> 			 
+				</div>
+			</div>
+
+        		<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>Set Temp</h4>
+					</div>
+					<div class="panel-body">			
+						<input type="text" placeholder="Set Temp" id="tsetter">
+						<a class="btn btn-lg btn-success" onclick="tp()">Set</a>
+					</div>		
+				</div>
+			</div> 
+		</div> <!-- End Row -->  
+		<div class="footer">
+			<p>&copy; CPYarger IT Services 2013</p></center>
+    	  	</div>
+    	</div> <!-- /container -->
+
+
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- My JS file for interfacing with thermostat daemon !-->
+	<script type="text/javascript" src="assets/js/therm.js"></script>
+<!-- Jquery JS Libs -->
+    	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+    	<script type="text/javascript" src="assets/js/flot/jquery.js"></script>
+<!-- Javascript Libs for Plotting graph with flot -->
+	<script type="text/javascript" src="assets/js/flot/jquery.flot.tooltip.js"></script>
+    	<script type="text/javascript" src="assets/js/flot/jquery.flot.js"></script>
+    	<script type="text/javascript" src="assets/js/flot/jquery.flot.selection.js"></script>
+<!-- JS libs for RRD /FLOT intigration -->
+    	<script type="text/javascript" src="assets/js/rrd/rrdFlotSupport.js"></script>
+    	<script type="text/javascript" src="assets/js/rrd/rrdFlot.js"></script>
+<!-- JS libs for working with RRD files --> 
+    	<script type="text/javascript" src="assets/js/rrd/binaryXHR.js"></script>
+    	<script type="text/javascript" src="assets/js/rrd/rrdFile.js"></script>
+<!-- JS Lib for theme -->
+    	<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+

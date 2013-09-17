@@ -1,0 +1,8 @@
+rrdtool create /var/www/dht11.rrd \
+--step 120 \
+DS:h0:GAUGE:300:0:100 \
+DS:t0:GAUGE:300:0:100 \
+RRA:AVERAGE:0.5:1:1200 \
+RRA:MIN:0.5:12:2400 \
+RRA:MAX:0.5:12:2400 \
+RRA:AVERAGE:0.5:12:2400
